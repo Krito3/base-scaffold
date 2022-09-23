@@ -1,7 +1,7 @@
 package com.krito3.base.scaffold.common.exception;
 
 
-import com.krito3.base.scaffold.common.api.IErrorCode;
+import com.krito3.base.scaffold.common.result.IResultCode;
 
 /**
  * 断言处理类，用于抛出各种API异常
@@ -12,7 +12,7 @@ public class Asserts {
         throw new ApiException(message);
     }
 
-    public static void fail(IErrorCode errorCode) {
+    public static void fail(IResultCode errorCode) {
         throw new ApiException(errorCode);
     }
 }

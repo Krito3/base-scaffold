@@ -1,6 +1,6 @@
 package com.krito3.base.scaffold.config;
 
-import com.krito3.base.scaffold.common.domain.SwaggerProperties;
+import com.krito3.base.scaffold.properties.SwaggerProperties;
 import com.krito3.base.scaffold.common.config.BaseSwaggerConfig;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;

@@ -1,8 +1,7 @@
 package com.krito3.base.scaffold.security.config;
 
 import com.krito3.base.scaffold.security.component.*;
-import com.krito3.base.scaffold.security.util.JwtTokenUtil;
-import com.krito3.base.scaffold.security.component.*;
+import com.krito3.base.scaffold.common.utils.JwtTokenUtil;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

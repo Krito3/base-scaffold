@@ -1,8 +1,8 @@
 package com.krito3.base.scaffold.config;
 
-import com.krito3.base.scaffold.modules.ums.model.UmsResource;
-import com.krito3.base.scaffold.modules.ums.service.UmsAdminService;
-import com.krito3.base.scaffold.modules.ums.service.UmsResourceService;
+import com.krito3.base.scaffold.module.entity.UmsResource;
+import com.krito3.base.scaffold.service.UmsAdminService;
+import com.krito3.base.scaffold.service.UmsResourceService;
 import com.krito3.base.scaffold.security.component.DynamicSecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

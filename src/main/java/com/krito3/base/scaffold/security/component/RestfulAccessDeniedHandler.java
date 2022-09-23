@@ -1,7 +1,7 @@
 package com.krito3.base.scaffold.security.component;
 
 import cn.hutool.json.JSONUtil;
-import com.krito3.base.scaffold.common.api.CommonResult;
+import com.krito3.base.scaffold.common.result.ResultVO;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 
@@ -23,7 +23,7 @@ public class RestfulAccessDeniedHandler implements AccessDeniedHandler{
         response.setHeader("Cache-Control","no-cache");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
-        response.getWriter().println(JSONUtil.parse(CommonResult.forbidden(e.getMessage())));
+        response.getWriter().println(JSONUtil.parse(ResultVO.fail(e.getMessage())));
         response.getWriter().flush();
     }
 }

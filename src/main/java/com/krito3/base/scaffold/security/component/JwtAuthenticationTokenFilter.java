@@ -1,6 +1,6 @@
 package com.krito3.base.scaffold.security.component;
 
-import com.krito3.base.scaffold.security.util.JwtTokenUtil;
+import com.krito3.base.scaffold.common.utils.JwtTokenUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

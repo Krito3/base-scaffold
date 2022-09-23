@@ -1,16 +1,16 @@
 package com.krito3.base.scaffold.common.exception;
 
 
-import com.krito3.base.scaffold.common.api.IErrorCode;
+import com.krito3.base.scaffold.common.result.IResultCode;
 
 /**
  * 自定义API异常
  * Created by macro on 2020/2/27.
  */
 public class ApiException extends RuntimeException {
-    private IErrorCode errorCode;
+    private IResultCode errorCode;
 
-    public ApiException(IErrorCode errorCode) {
+    public ApiException(IResultCode errorCode) {
         super(errorCode.getMessage());
         this.errorCode = errorCode;
     }
@@ -27,7 +27,7 @@ public class ApiException extends RuntimeException {
         super(message, cause);
     }
 
-    public IErrorCode getErrorCode() {
+    public IResultCode getErrorCode() {
         return errorCode;
     }
 }

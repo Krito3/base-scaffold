@@ -1,7 +1,7 @@
 package com.krito3.base.scaffold.security.component;
 
 import cn.hutool.json.JSONUtil;
-import com.krito3.base.scaffold.common.api.CommonResult;
+import com.krito3.base.scaffold.common.result.ResultVO;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 
@@ -21,7 +21,7 @@ public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
         response.setHeader("Cache-Control","no-cache");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
-        response.getWriter().println(JSONUtil.parse(CommonResult.unauthorized(authException.getMessage())));
+        response.getWriter().println(JSONUtil.parse(ResultVO.fail(authException.getMessage())));
         response.getWriter().flush();
     }
 }

@@ -1,6 +1,6 @@
 package com.krito3.base.scaffold.common.config;
 
-import com.krito3.base.scaffold.common.domain.SwaggerProperties;
+import com.krito3.base.scaffold.properties.SwaggerProperties;
 import org.springframework.context.annotation.Bean;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;

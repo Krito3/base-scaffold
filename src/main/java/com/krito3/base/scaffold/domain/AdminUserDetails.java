@@ -1,7 +1,7 @@
 package com.krito3.base.scaffold.domain;
 
-import com.krito3.base.scaffold.modules.ums.model.UmsAdmin;
-import com.krito3.base.scaffold.modules.ums.model.UmsResource;
+import com.krito3.base.scaffold.module.entity.UmsAdmin;
+import com.krito3.base.scaffold.module.entity.UmsResource;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
