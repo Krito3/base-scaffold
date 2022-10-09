@@ -34,8 +34,7 @@ import java.util.Optional;
  *
  * @author Chill
  */
-@Getter
-@Setter
+@Data
 @ToString
 @ApiModel(description = "返回信息")
 @NoArgsConstructor
@@ -50,7 +49,7 @@ public class ResultVO<T> implements Serializable {
     @ApiModelProperty(value = "承载数据")
     private T data;
     @ApiModelProperty(value = "返回消息", required = true)
-    private String msg;
+    private String message;
 
     private ResultVO(IResultCode resultCode) {
         this(resultCode, null, resultCode.getMessage());
@@ -64,14 +63,14 @@ public class ResultVO<T> implements Serializable {
         this(resultCode, data, resultCode.getMessage());
     }
 
-    private ResultVO(IResultCode resultCode, T data, String msg) {
-        this(resultCode.getCode(), data, msg);
+    private ResultVO(IResultCode resultCode, T data, String message) {
+        this(resultCode.getCode(), data, message);
     }
 
-    private ResultVO(int code, T data, String msg) {
+    private ResultVO(int code, T data, String message) {
         this.code = code;
         this.data = data;
-        this.msg = msg;
+        this.message = message;
         this.success = ResultCode.SUCCESS.code == code;
     }
 

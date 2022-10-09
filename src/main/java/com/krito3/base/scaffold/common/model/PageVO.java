@@ -1,4 +1,4 @@
-package com.krito3.base.scaffold.common.result;
+package com.krito3.base.scaffold.common.model;
 
 import cn.hutool.core.convert.Convert;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -9,7 +9,7 @@ import java.util.List;
  * 分页数据封装类
  * Created by macro on 2019/4/19.
  */
-public class ResultPageVO<T> {
+public class PageVO<T> {
     private Integer pageNum;
     private Integer pageSize;
     private Integer totalPage;
@@ -19,8 +19,8 @@ public class ResultPageVO<T> {
     /**
      * 将MyBatis Plus 分页结果转化为通用结果
      */
-    public static <T> ResultPageVO<T> restPage(Page<T> pageResult) {
-        ResultPageVO<T> result = new ResultPageVO<>();
+    public static <T> PageVO<T> restPage(Page<T> pageResult) {
+        PageVO<T> result = new PageVO<>();
         result.setPageNum(Convert.toInt(pageResult.getCurrent()));
         result.setPageSize(Convert.toInt(pageResult.getSize()));
         result.setTotal(pageResult.getTotal());

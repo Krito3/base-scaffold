@@ -1,7 +1,7 @@
 package com.krito3.base.scaffold.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.krito3.base.scaffold.common.result.ResultPageVO;
+import com.krito3.base.scaffold.common.model.PageVO;
 import com.krito3.base.scaffold.common.result.ResultVO;
 import com.krito3.base.scaffold.module.entity.UmsMenu;
 import com.krito3.base.scaffold.module.entity.UmsResource;
@@ -36,7 +36,7 @@ public class UmsRoleController {
         if (success) {
             return ResultVO.data(null);
         }
-        return ResultVO.fail("");
+        return ResultVO.fail("未知错误！");
     }
 
     @ApiOperation("修改角色")
@@ -48,7 +48,7 @@ public class UmsRoleController {
         if (success) {
             return ResultVO.data(null);
         }
-        return ResultVO.fail("");
+        return ResultVO.fail("未知错误！");
     }
 
     @ApiOperation("批量删除角色")
@@ -59,7 +59,7 @@ public class UmsRoleController {
         if (success) {
             return ResultVO.data(null);
         }
-        return ResultVO.fail("");
+        return ResultVO.fail("未知错误！");
     }
 
 
@@ -74,11 +74,11 @@ public class UmsRoleController {
     @ApiOperation("根据角色名称分页获取角色列表")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
-    public ResultVO<ResultPageVO<UmsRole>> list(@RequestParam(value = "keyword", required = false) String keyword,
-                                                @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
-                                                @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
+    public ResultVO<PageVO<UmsRole>> list(@RequestParam(value = "keyword", required = false) String keyword,
+                                          @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
+                                          @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
         Page<UmsRole> roleList = roleService.list(keyword, pageSize, pageNum);
-        return ResultVO.data(ResultPageVO.restPage(roleList));
+        return ResultVO.data(PageVO.restPage(roleList));
     }
 
     @ApiOperation("修改角色状态")
@@ -92,7 +92,7 @@ public class UmsRoleController {
         if (success) {
             return ResultVO.data(null);
         }
-        return ResultVO.fail("");
+        return ResultVO.fail("未知错误！");
     }
 
     @ApiOperation("获取角色相关菜单")

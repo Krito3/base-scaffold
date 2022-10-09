@@ -31,13 +31,13 @@ public class UmsAdminCacheServiceImpl implements UmsAdminCacheService {
     private UmsAdminMapper adminMapper;
     @Autowired
     private UmsAdminRoleRelationService adminRoleRelationService;
-    @Value("${redis.database}")
+    @Value("${spring.redis.database}")
     private String REDIS_DATABASE;
-    @Value("${redis.expire.common}")
+    @Value("${spring.redis.expire.common}")
     private Long REDIS_EXPIRE;
-    @Value("${redis.key.admin}")
+    @Value("${spring.redis.key.admin}")
     private String REDIS_KEY_ADMIN;
-    @Value("${redis.key.resourceList}")
+    @Value("${spring.redis.key.resourceList}")
     private String REDIS_KEY_RESOURCE_LIST;
 
     @Override

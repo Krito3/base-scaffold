@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.krito3.base.scaffold.common.exception.Asserts;
+import com.krito3.base.scaffold.common.exception.BusinessException;
 import com.krito3.base.scaffold.domain.AdminUserDetails;
 import com.krito3.base.scaffold.module.dto.UmsAdminParam;
 import com.krito3.base.scaffold.module.dto.UpdateAdminPasswordParam;
@@ -103,10 +103,10 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
         try {
             UserDetails userDetails = loadUserByUsername(username);
             if(!passwordEncoder.matches(password,userDetails.getPassword())){
-                Asserts.fail("密码不正确");
+                throw new BusinessException("账号密码不匹配！");
             }
             if(!userDetails.isEnabled()){
-                Asserts.fail("帐号已被禁用");
+                throw new BusinessException("账号已被禁言！");
             }
             UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authentication);

@@ -8,7 +8,7 @@
     <!-- 彩色日志格式 -->
     <property name="CONSOLE_LOG_PATTERN" value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}" />
     <!-- 控制台输出 -->
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="STUDIO" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [日志信息] - %msg%n</pattern>
             <charset>utf8</charset>
@@ -16,7 +16,7 @@
     </appender>
 
     <!-- 生成日志文件 -->
-    <appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="FILE_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 日志文件输出的文件名 -->
             <FileNamePattern>logs/info-%d{yyyy-MM-dd}.log</FileNamePattern>
@@ -39,7 +39,7 @@
     </appender>
 
     <!-- 生成日志文件 -->
-    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="FILE_ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 日志文件输出的文件名 -->
             <FileNamePattern>logs/error-%d{yyyy-MM-dd}.log</FileNamePattern>
@@ -63,8 +63,8 @@
 
     <!-- 日志输出级别 -->
     <root level="INFO">
-        <appender-ref ref="STDOUT" />
-        <appender-ref ref="INFO" />
-        <appender-ref ref="ERROR" />
+        <appender-ref ref="STUDIO" />
+        <appender-ref ref="FILE_INFO" />
+        <appender-ref ref="FILE_ERROR" />
     </root>
 </configuration>

@@ -1,7 +1,7 @@
 package com.krito3.base.scaffold.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.krito3.base.scaffold.common.result.ResultPageVO;
+import com.krito3.base.scaffold.common.model.PageVO;
 import com.krito3.base.scaffold.common.result.ResultVO;
 import com.krito3.base.scaffold.module.entity.UmsResource;
 import com.krito3.base.scaffold.service.UmsResourceService;
@@ -39,7 +39,7 @@ public class UmsResourceController {
         if (success) {
             return ResultVO.data(null);
         } else {
-            return ResultVO.fail("");
+            return ResultVO.fail("未知错误！");
         }
     }
 
@@ -53,7 +53,7 @@ public class UmsResourceController {
         if (success) {
             return ResultVO.data(null);
         } else {
-            return ResultVO.fail("");
+            return ResultVO.fail("未知错误！");
         }
     }
 
@@ -74,20 +74,20 @@ public class UmsResourceController {
         if (success) {
             return ResultVO.data(null);
         } else {
-            return ResultVO.fail("");
+            return ResultVO.fail("未知错误！");
         }
     }
 
     @ApiOperation("分页模糊查询后台资源")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
-    public ResultVO<ResultPageVO<UmsResource>> list(@RequestParam(required = false) Long categoryId,
-                                                    @RequestParam(required = false) String nameKeyword,
-                                                    @RequestParam(required = false) String urlKeyword,
-                                                    @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
-                                                    @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
+    public ResultVO<PageVO<UmsResource>> list(@RequestParam(required = false) Long categoryId,
+                                              @RequestParam(required = false) String nameKeyword,
+                                              @RequestParam(required = false) String urlKeyword,
+                                              @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
+                                              @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
         Page<UmsResource> resourceList = resourceService.list(categoryId,nameKeyword, urlKeyword, pageSize, pageNum);
-        return ResultVO.data(ResultPageVO.restPage(resourceList));
+        return ResultVO.data(PageVO.restPage(resourceList));
     }
 
     @ApiOperation("查询所有后台资源")

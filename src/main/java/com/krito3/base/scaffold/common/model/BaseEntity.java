@@ -1,4 +1,4 @@
-package com.krito3.base.scaffold.common.beans;
+package com.krito3.base.scaffold.common.model;
 
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;

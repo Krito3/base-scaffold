@@ -25,16 +25,6 @@ public class BaseMybatisPlusInterceptor {
     }
 
     /**
-     * sql 日志
-     *
-     * @return SqlLogInterceptor
-     */
-    @Bean
-    public SqlLogInterceptor sqlLogInterceptor() {
-        return new SqlLogInterceptor();
-    }
-
-    /**
      * 防止全表删除或者全表更新
      * 全表删除或者更新 会抛出 com.baomidou.mybatisplus.core.exceptions.MybatisPlusException: Prohibition of table update operation
      *

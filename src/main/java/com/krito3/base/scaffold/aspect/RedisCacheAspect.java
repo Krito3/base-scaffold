@@ -1,4 +1,4 @@
-package com.krito3.base.scaffold.security.aspect;
+package com.krito3.base.scaffold.aspect;
 
 import com.krito3.base.scaffold.security.annotation.CacheException;
 import org.aspectj.lang.ProceedingJoinPoint;

@@ -4,21 +4,22 @@ spring:
     username: root
     password: mengxiang3.
 
-redis:
-  port: 6379
-  database: 0
-  host: localhost
-  timeout: 10000
-  lettuce:
-    pool:
-      min-idle: 5
-      max-idle: 10
-      max-active: 100
-  key:
-    admin: 'ums:admin'
-    resourceList: 'ums:resourceList'
-  expire:
-    common: 86400 # 24小时
+  redis:
+    port: 6379
+    password: mengxiang3.
+    database: 0
+    host: krito3.com
+    timeout: 10000
+    lettuce:
+      pool:
+        min-idle: 5
+        max-idle: 10
+        max-active: 100
+    key:
+      admin: 'ums:admin'
+      resourceList: 'ums:resourceList'
+    expire:
+      common: 86400 # 24小时
 
 rocketmq:
   #nameservice服务器地址（多个以英文逗号隔开）
@@ -29,11 +30,11 @@ rocketmq:
     group: group-base
 
 minio:
-  endpoint: http://10.5.5.166:9000/
-  bucketName: wisdom-star-bucket-test
-  publicBucketName: wisdom-star-bucket-public
-  accessKey: AKIAIOSFODNN7EXAMPLE
-  secretKey: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+  endpoint: http://krito3.com:9000/
+  bucketName: pawnshop8
+  publicBucketName: pawnshop8
+  accessKey: pawnshop8
+  secretKey: pawnshop8
   path: /home/videt
 
 taskExecutor:

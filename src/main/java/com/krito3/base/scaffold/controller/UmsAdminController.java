@@ -1,9 +1,7 @@
 package com.krito3.base.scaffold.controller;
 
 import cn.hutool.core.collection.CollUtil;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.krito3.base.scaffold.common.result.ResultPageVO;
+import com.krito3.base.scaffold.common.model.PageVO;
 import com.krito3.base.scaffold.common.result.ResultVO;
 import com.krito3.base.scaffold.module.dto.UmsAdminLoginParam;
 import com.krito3.base.scaffold.module.dto.UmsAdminParam;
@@ -52,7 +50,7 @@ public class UmsAdminController {
     public ResultVO<UmsAdmin> register(@Validated @RequestBody UmsAdminParam umsAdminParam) {
         UmsAdmin umsAdmin = adminService.register(umsAdminParam);
         if (umsAdmin == null) {
-            return ResultVO.fail("");
+            return ResultVO.fail("未知错误！");
         }
         return ResultVO.data(umsAdmin);
     }
@@ -117,11 +115,11 @@ public class UmsAdminController {
     @ApiOperation("根据用户名或姓名分页获取用户列表")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
-    public ResultPageVO<UmsAdmin> list(@RequestParam(value = "keyword", required = false) String keyword,
-                                              @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
-                                              @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
-        Page<UmsAdmin> adminList = adminService.list(keyword, pageSize, pageNum);
-        return ResultPageVO.restPage(adminList);
+    public ResultVO<PageVO<UmsAdmin>> list(@RequestParam(value = "keyword", required = false) String keyword,
+                                           @RequestParam(value = "pageSize", defaultValue = "20") Integer pageSize,
+                                           @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
+        PageVO<UmsAdmin> pageList = PageVO.restPage(adminService.list(keyword, pageSize, pageNum));
+        return ResultVO.data(pageList);
     }
 
     @ApiOperation("获取指定用户信息")
@@ -140,7 +138,7 @@ public class UmsAdminController {
         if (success) {
             return ResultVO.data(null);
         }
-        return ResultVO.fail("");
+        return ResultVO.fail("未知错误！");
     }
 
     @ApiOperation("修改指定用户密码")
@@ -157,7 +155,7 @@ public class UmsAdminController {
         } else if (status == -3) {
             return ResultVO.fail("旧密码错误");
         } else {
-            return ResultVO.fail("");
+            return ResultVO.fail("未知错误！");
         }
     }
 
@@ -169,7 +167,7 @@ public class UmsAdminController {
         if (success) {
             return ResultVO.data(null);
         }
-        return ResultVO.fail("");
+        return ResultVO.fail("未知错误！");
     }
 
     @ApiOperation("修改帐号状态")
@@ -182,7 +180,7 @@ public class UmsAdminController {
         if (success) {
             return ResultVO.data(null);
         }
-        return ResultVO.fail("");
+        return ResultVO.fail("未知错误！");
     }
 
     @ApiOperation("给用户分配角色")
@@ -194,7 +192,7 @@ public class UmsAdminController {
         if (count >= 0) {
             return ResultVO.data(count);
         }
-        return ResultVO.fail("");
+        return ResultVO.fail("未知错误！");
     }
 
     @ApiOperation("获取指定用户的角色")

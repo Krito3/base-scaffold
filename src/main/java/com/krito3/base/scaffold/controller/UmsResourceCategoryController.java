@@ -40,7 +40,7 @@ public class UmsResourceCategoryController {
         if (success) {
             return ResultVO.data(null);
         } else {
-            return ResultVO.fail("");
+            return ResultVO.fail("未知错误！");
         }
     }
 
@@ -54,7 +54,7 @@ public class UmsResourceCategoryController {
         if (success) {
             return ResultVO.data(null);
         } else {
-            return ResultVO.fail("");
+            return ResultVO.fail("未知错误！");
         }
     }
 
@@ -66,7 +66,7 @@ public class UmsResourceCategoryController {
         if (success) {
             return ResultVO.data(null);
         } else {
-            return ResultVO.fail("");
+            return ResultVO.fail("未知错误！");
         }
     }
 }

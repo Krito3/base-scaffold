@@ -1,5 +1,5 @@
 server:
-  port: 8888
+  port: 9999
 
 spring:
   application:
@@ -13,7 +13,7 @@ spring:
       matching-strategy: ant_path_matcher
 
 mybatis-plus:
-  mapper-locations: classpath*:mappers/*Mapper.xml
+  mapper-locations: classpath:mapper/*Mapper.xml
   global-config:
     db-config:
       id-type: auto
@@ -22,9 +22,10 @@ mybatis-plus:
     map-underscore-to-camel-case: true
 
 logging:
-  config: classpath:logback.xml
+  config: classpath:logback-spring.xml
   level:
-    com.krito3.base.scaffold.controller: info
+    com.krito3.base.scaffold.controller: debug
+    com.krito3.base.scaffold.mapper: debug
 
 jwt:
   tokenHeader: Authorization #JWT存储的请求头

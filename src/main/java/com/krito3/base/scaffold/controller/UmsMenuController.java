@@ -1,7 +1,7 @@
 package com.krito3.base.scaffold.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.krito3.base.scaffold.common.result.ResultPageVO;
+import com.krito3.base.scaffold.common.model.PageVO;
 import com.krito3.base.scaffold.common.result.ResultVO;
 import com.krito3.base.scaffold.module.dto.UmsMenuNode;
 import com.krito3.base.scaffold.module.entity.UmsMenu;
@@ -36,7 +36,7 @@ public class UmsMenuController {
         if (success) {
             return ResultVO.data(null);
         } else {
-            return ResultVO.fail("");
+            return ResultVO.fail("未知错误！");
         }
     }
 
@@ -49,7 +49,7 @@ public class UmsMenuController {
         if (success) {
             return ResultVO.data(null);
         } else {
-            return ResultVO.fail("");
+            return ResultVO.fail("未知错误！");
         }
     }
 
@@ -69,18 +69,18 @@ public class UmsMenuController {
         if (success) {
             return ResultVO.data(null);
         } else {
-            return ResultVO.fail("");
+            return ResultVO.fail("未知错误！");
         }
     }
 
     @ApiOperation("分页查询后台菜单")
     @RequestMapping(value = "/list/{parentId}", method = RequestMethod.GET)
     @ResponseBody
-    public ResultVO<ResultPageVO<UmsMenu>> list(@PathVariable Long parentId,
-                                                @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
-                                                @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
+    public ResultVO<PageVO<UmsMenu>> list(@PathVariable Long parentId,
+                                          @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
+                                          @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
         Page<UmsMenu> menuList = menuService.list(parentId, pageSize, pageNum);
-        return ResultVO.data(ResultPageVO.restPage(menuList));
+        return ResultVO.data(PageVO.restPage(menuList));
     }
 
     @ApiOperation("树形结构返回所有菜单列表")
@@ -99,7 +99,7 @@ public class UmsMenuController {
         if (success) {
             return ResultVO.data(null);
         } else {
-            return ResultVO.fail("");
+            return ResultVO.fail("未知错误！");
         }
     }
 }
